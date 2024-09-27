@@ -5,10 +5,8 @@ from langchain.llms import Ollama
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
-# Initialize the LLaMA 3.1 model through Ollama
-llm = Ollama(model="llama3.1")  # Use 'llama2' or ensure the correct model is installed locally in Ollama
+llm = Ollama(model="llama3.1")
 
-# Define a template for your prompt
 prompt_template = PromptTemplate(
     input_variables=["question"],
     template="""
@@ -28,22 +26,18 @@ prompt_template = PromptTemplate(
     """
 )
 
-# Initialize a Langchain chain with the LLM and prompt template
 llm_chain = LLMChain(
     llm=llm,
     prompt=prompt_template
 )
 
-print('HELLLLO 1')
 
 ######
 
-
-
 import json
-import markdown
-from bs4 import BeautifulSoup
-from langchain.schema import Document
+# import markdown
+# from bs4 import BeautifulSoup
+# from langchain.schema import Document
 import re
 
 
@@ -64,23 +58,6 @@ def extract_first_code_block_from_markdown(markdown_text):
         print("No code block found.")
         return None
 
-# Example usage
-markdown_text = '''
-# Sample Markdown
-
-Here is some markdown text.
-
-```json
-{
-  "name": "Charlie",
-  "age": 29,
-  "city": "Berlin"
-}
-```
-'''
-
-print('HELLLLO 3')
-print(extract_first_code_block_from_markdown(markdown_text))
 
 # Define your question and run the chain
 # question = "Sushi within 10km of my location"
